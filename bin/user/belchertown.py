@@ -1572,7 +1572,7 @@ class getData(SearchList):
             # Sample URL from Belchertown Weather:
             # http://earthquake.usgs.gov/fdsnws/event/1/query?limit=1&lat=42.223&lon=-72.374&maxradiuskm=1000&format=geojson&nodata=204&minmag=2
             if extras_dict["earthquake_server"] == "USGS":
-                earthquake_usgsmm = extras_dict["earthquake_usgsmm"] || 2
+                earthquake_usgsmm = extras_dict.get("earthquake_usgsmm","2")
                 earthquake_url = f"http://earthquake.usgs.gov/fdsnws/event/1/query?limit=1&lat={latitude}&lon={longitude}&maxradiuskm={earthquake_maxradiuskm}&format=geojson&nodata=204&minmag={earthquake_usgsmm}"
             elif extras_dict["earthquake_server"] == "GeoNet":
                 earthquake_url = f"""https://api.geonet.org.nz/quake?MMI={extras_dict["geonet_mmi"]}"""
